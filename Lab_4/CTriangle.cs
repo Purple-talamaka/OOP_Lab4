@@ -16,6 +16,12 @@ namespace Lab_4
             _size = size;
         }
 
+        public override void Move(int dx, int dy, int maxWidth, int maxHeight)
+        {
+            _x = Math.Clamp(_x + dx, _size, maxWidth - _size);
+            _y = Math.Clamp(_y + dy, _size, maxHeight - _size);
+        }
+
         private Point[] GetVertices()
         {
             return new Point[]

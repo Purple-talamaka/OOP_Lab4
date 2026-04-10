@@ -35,26 +35,63 @@
             btnSegment = new ToolStripButton();
             menuStrip1 = new MenuStrip();
             menuItemColor = new ToolStripMenuItem();
-
+            toolStrip1.SuspendLayout();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // toolStrip1
+            // 
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnCircle, btnSquare, btnTriangle, btnSegment });
-
+            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(800, 25);
+            toolStrip1.TabIndex = 0;
+            // 
+            // btnCircle
+            // 
+            btnCircle.Name = "btnCircle";
+            btnCircle.Size = new Size(36, 22);
             btnCircle.Text = "Круг";
             btnCircle.Click += btnCircle_Click;
-
+            // 
+            // btnSquare
+            // 
+            btnSquare.Name = "btnSquare";
+            btnSquare.Size = new Size(54, 22);
             btnSquare.Text = "Квадрат";
             btnSquare.Click += btnSquare_Click;
-
+            // 
+            // btnTriangle
+            // 
+            btnTriangle.Name = "btnTriangle";
+            btnTriangle.Size = new Size(81, 22);
             btnTriangle.Text = "Треугольник";
             btnTriangle.Click += btnTriangle_Click;
-
+            // 
+            // btnSegment
+            // 
+            btnSegment.Name = "btnSegment";
+            btnSegment.Size = new Size(56, 22);
             btnSegment.Text = "Отрезок";
             btnSegment.Click += btnSegment_Click;
-
-            menuStrip1.Items.Add(menuItemColor);
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuItemColor });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 1;
+            // 
+            // menuItemColor
+            // 
+            menuItemColor.Name = "menuItemColor";
+            menuItemColor.Size = new Size(45, 20);
             menuItemColor.Text = "Цвет";
             menuItemColor.Click += menuItemColor_Click;
-
-            SuspendLayout();
+            // 
+            // Form1
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
@@ -64,6 +101,10 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

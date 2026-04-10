@@ -16,6 +16,12 @@ namespace Lab_4
             _radius = radius;
         }
 
+        public override void Move(int dx, int dy, int maxWidth, int maxHeight)
+        {
+            _x = Math.Clamp(_x + dx, _radius, maxWidth - _radius);
+            _y = Math.Clamp(_y + dy, _radius, maxHeight - _radius);
+        }
+
         public override bool HitTest(int x, int y)
         {
             int dx = x - _x;

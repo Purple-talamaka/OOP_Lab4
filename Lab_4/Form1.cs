@@ -76,7 +76,7 @@ namespace Lab_4
                 int dy = e.Y - _lastMousePos.Y;
                 for (int i = 0; i < _storage.GetCount(); i++)
                     if (_storage.GetObject(i).IsSelected)
-                        _storage.GetObject(i).Move(dx, dy);
+                        _storage.GetObject(i).Move(dx, dy, ClientSize.Width, ClientSize.Height);
                 _lastMousePos = new Point(e.X, e.Y);
                 Invalidate();
             }
@@ -104,28 +104,28 @@ namespace Lab_4
             {
                 for (int i = 0; i < _storage.GetCount(); i++)
                     if (_storage.GetObject(i).IsSelected)
-                        _storage.GetObject(i).Move(-step, 0);
+                        _storage.GetObject(i).Move(-step, 0, ClientSize.Width, ClientSize.Height);
                 Invalidate();
             }
             else if (e.KeyCode == Keys.Right)
             {
                 for (int i = 0; i < _storage.GetCount(); i++)
                     if (_storage.GetObject(i).IsSelected)
-                        _storage.GetObject(i).Move(step, 0);
+                        _storage.GetObject(i).Move(step, 0, ClientSize.Width, ClientSize.Height);
                 Invalidate();
             }
             else if (e.KeyCode == Keys.Up)
             {
                 for (int i = 0; i < _storage.GetCount(); i++)
                     if (_storage.GetObject(i).IsSelected)
-                        _storage.GetObject(i).Move(0, -step);
+                        _storage.GetObject(i).Move(0, -step, ClientSize.Width, ClientSize.Height);
                 Invalidate();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 for (int i = 0; i < _storage.GetCount(); i++)
                     if (_storage.GetObject(i).IsSelected)
-                        _storage.GetObject(i).Move(0, step);
+                        _storage.GetObject(i).Move(0, step, ClientSize.Width, ClientSize.Height);
                 Invalidate();
             }
 

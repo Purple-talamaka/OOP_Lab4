@@ -12,10 +12,10 @@ namespace Lab_4
         protected int _y;
         protected Color _color = Color.LightGray;
 
-        public virtual void Move(int dx, int dy)
+        public virtual void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
-            _x += dx;
-            _y += dy;
+            _x = Math.Clamp(_x + dx, 0, maxWidth);
+            _y = Math.Clamp(_y + dy, 0, maxHeight);
         }
 
         public abstract void Draw(Graphics g);

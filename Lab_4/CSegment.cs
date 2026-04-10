@@ -17,12 +17,16 @@ namespace Lab_4
             _y2 = y2;
         }
 
-        public override void Move(int dx, int dy)
+        public override void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
-            _x1 += dx;
-            _y1 += dy;
-            _x2 += dx;
-            _y2 += dy;
+            int newX1 = _x1 + dx, newY1 = _y1 + dy;
+            int newX2 = _x2 + dx, newY2 = _y2 + dy;
+            if (newX1 >= 0 && newX1 <= maxWidth && newX2 >= 0 && newX2 <= maxWidth &&
+                newY1 >= 0 && newY1 <= maxHeight && newY2 >= 0 && newY2 <= maxHeight)
+            {
+                _x1 = newX1; _y1 = newY1;
+                _x2 = newX2; _y2 = newY2;
+            }
         }
 
         public override bool HitTest(int x, int y)

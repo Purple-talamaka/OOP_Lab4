@@ -16,6 +16,13 @@ namespace Lab_4
             _side = side;
         }
 
+        public override void Move(int dx, int dy, int maxWidth, int maxHeight)
+        {
+            int half = _side / 2;
+            _x = Math.Clamp(_x + dx, half, maxWidth - half);
+            _y = Math.Clamp(_y + dy, half, maxHeight - half);
+        }
+
         public override bool HitTest(int x, int y)
         {
             int half = _side / 2;
