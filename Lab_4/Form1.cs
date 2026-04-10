@@ -63,6 +63,19 @@ namespace Lab_4
             }
         }
 
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e); if (e.KeyCode == Keys.Delete)
+            {
+                for (int i = _storage.GetCount() - 1; i >= 0; i--)
+                {
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.Remove(_storage.GetObject(i));
+                }
+                Invalidate();
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
