@@ -13,7 +13,7 @@ namespace Lab_4
         protected Color _color;
         protected bool _isSelected;
 
-        public void Move(int x, int y)
+        public virtual void Move(int x, int y)
         {
             _x = x;
             _y = y;
