@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,9 @@ namespace Lab_4
 {
     public class CTriangle : CShape
     {
+        // Радиус описанной окружности равностороннего треугольника
         private int _size;
+
         public CTriangle(int x, int y, int size)
         {
             _x = x;
@@ -27,16 +29,18 @@ namespace Lab_4
             _y = Math.Clamp(_y + dy, _size, maxHeight - _size);
         }
 
+        // Вычисляет три вершины треугольника по центру и радиусу
         private Point[] GetVertices()
         {
             return new Point[]
             {
-          new Point(_x + (int)(_size * Math.Cos(Math.PI / 2)),   _y - (int)(_size * Math.Sin(Math.PI / 2))),
-          new Point(_x + (int)(_size * Math.Cos(7 * Math.PI / 6)), _y - (int)(_size * Math.Sin(7 * Math.PI / 6))),
-          new Point(_x + (int)(_size * Math.Cos(11 * Math.PI / 6)), _y - (int)(_size * Math.Sin(11 * Math.PI / 6)))
+                new Point(_x + (int)(_size * Math.Cos(Math.PI / 2)),    _y - (int)(_size * Math.Sin(Math.PI / 2))),
+                new Point(_x + (int)(_size * Math.Cos(7 * Math.PI / 6)), _y - (int)(_size * Math.Sin(7 * Math.PI / 6))),
+                new Point(_x + (int)(_size * Math.Cos(11 * Math.PI / 6)), _y - (int)(_size * Math.Sin(11 * Math.PI / 6)))
             };
         }
 
+        // Проверка через знаки относительно каждого ребра
         public override bool HitTest(int x, int y)
         {
             Point[] v = GetVertices();
@@ -58,16 +62,8 @@ namespace Lab_4
         public override void Draw(Graphics g)
         {
             Point[] v = GetVertices();
-            if (IsSelected)
-            {
-                g.FillPolygon(new SolidBrush(_color), v);
-                g.DrawPolygon(new Pen(Color.Blue, 2), v);
-            }
-            else
-            {
-                g.FillPolygon(new SolidBrush(_color), v);
-                g.DrawPolygon(Pens.Black, v);
-            }
+            g.FillPolygon(new SolidBrush(_color), v);
+            g.DrawPolygon(IsSelected ? new Pen(Color.Blue, 2) : Pens.Black, v);
         }
     }
 }

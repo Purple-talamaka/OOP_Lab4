@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,7 @@ namespace Lab_4
     public class CCircle : CShape
     {
         private int _radius;
+
         public CCircle(int x, int y, int radius)
         {
             _x = x;
@@ -21,6 +22,7 @@ namespace Lab_4
             _radius = Math.Max(5, _radius + delta);
         }
 
+        // Центр не выходит за границы с учётом радиуса
         public override void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
             _x = Math.Clamp(_x + dx, _radius, maxWidth - _radius);
@@ -40,16 +42,8 @@ namespace Lab_4
             int top = _y - _radius;
             int size = _radius * 2;
 
-            if (IsSelected)
-            {
-                g.FillEllipse(new SolidBrush(_color), left, top, size, size);
-                g.DrawEllipse(new Pen(Color.Blue, 2), left, top, size, size);
-            }
-            else
-            {
-                g.FillEllipse(new SolidBrush(_color), left, top, size, size);
-                g.DrawEllipse(Pens.Black, left, top, size, size);
-            }
+            g.FillEllipse(new SolidBrush(_color), left, top, size, size);
+            g.DrawEllipse(IsSelected ? new Pen(Color.Blue, 2) : Pens.Black, left, top, size, size);
         }
     }
 }

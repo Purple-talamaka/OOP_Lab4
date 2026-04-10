@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,7 @@ namespace Lab_4
     public class CSquare : CShape
     {
         private int _side;
+
         public CSquare(int x, int y, int side)
         {
             _x = x;
@@ -21,6 +22,7 @@ namespace Lab_4
             _side = Math.Max(5, _side + delta);
         }
 
+        // Центр не выходит за границы с учётом половины стороны
         public override void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
             int half = _side / 2;
@@ -40,16 +42,8 @@ namespace Lab_4
             int left = _x - half;
             int top = _y - half;
 
-            if (IsSelected)
-            {
-                g.FillRectangle(new SolidBrush(_color), left, top, _side, _side);
-                g.DrawRectangle(new Pen(Color.Blue, 2), left, top, _side, _side);
-            }
-            else
-            {
-                g.FillRectangle(new SolidBrush(_color), left, top, _side, _side);
-                g.DrawRectangle(Pens.Black, left, top, _side, _side);
-            }
+            g.FillRectangle(new SolidBrush(_color), left, top, _side, _side);
+            g.DrawRectangle(IsSelected ? new Pen(Color.Blue, 2) : Pens.Black, left, top, _side, _side);
         }
     }
 }
