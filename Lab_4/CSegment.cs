@@ -17,6 +17,23 @@ namespace Lab_4
             _y2 = y2;
         }
 
+        public override void Resize(int delta)
+        {
+            // Удлиняем/укорачиваем отрезок от центра
+            float cx = (_x1 + _x2) / 2f;
+            float cy = (_y1 + _y2) / 2f;
+            float dx = _x2 - _x1;
+            float dy = _y2 - _y1;
+            float len = (float)Math.Sqrt(dx * dx + dy * dy);
+            if (len == 0) return;
+            float newLen = Math.Max(5, len + delta);
+            float scale = newLen / len;
+            _x1 = (int)(cx - dx / 2 * scale);
+            _y1 = (int)(cy - dy / 2 * scale);
+            _x2 = (int)(cx + dx / 2 * scale);
+            _y2 = (int)(cy + dy / 2 * scale);
+        }
+
         public override void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
             int newX1 = _x1 + dx, newY1 = _y1 + dy;

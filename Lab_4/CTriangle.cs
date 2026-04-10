@@ -16,6 +16,11 @@ namespace Lab_4
             _size = size;
         }
 
+        public override void Resize(int delta)
+        {
+            _size = Math.Max(5, _size + delta);
+        }
+
         public override void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
             _x = Math.Clamp(_x + dx, _size, maxWidth - _size);

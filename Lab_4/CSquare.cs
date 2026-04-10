@@ -16,6 +16,11 @@ namespace Lab_4
             _side = side;
         }
 
+        public override void Resize(int delta)
+        {
+            _side = Math.Max(5, _side + delta);
+        }
+
         public override void Move(int dx, int dy, int maxWidth, int maxHeight)
         {
             int half = _side / 2;

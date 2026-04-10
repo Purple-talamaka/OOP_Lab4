@@ -18,6 +18,8 @@ namespace Lab_4
             _y = Math.Clamp(_y + dy, 0, maxHeight);
         }
 
+        public abstract void Resize(int delta);
+
         public abstract void Draw(Graphics g);
 
         public abstract bool HitTest(int x, int y);

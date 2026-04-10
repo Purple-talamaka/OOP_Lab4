@@ -100,6 +100,21 @@ namespace Lab_4
                 Invalidate();
             }
 
+            if (e.KeyCode == Keys.Oemplus || e.KeyCode == Keys.Add)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Resize(5);
+                Invalidate();
+            }
+            else if (e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.Subtract)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Resize(-5);
+                Invalidate();
+            }
+
             int step = 5; if (e.KeyCode == Keys.Left)
             {
                 for (int i = 0; i < _storage.GetCount(); i++)
@@ -135,6 +150,7 @@ namespace Lab_4
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void Form1_Load(object sender, EventArgs e) { }
