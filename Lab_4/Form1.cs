@@ -4,6 +4,8 @@ namespace Lab_4
     {
         private ShapeStorage _storage = new ShapeStorage();
         private string _currentTool = "Круг";
+        private bool _isDragging = false;
+        private Point _lastMousePos;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -36,6 +38,8 @@ namespace Lab_4
                             _storage.GetObject(i).IsSelected = false;
                         clicked.IsSelected = true;
                     }
+                    _isDragging = true;
+                    _lastMousePos = new Point(e.X, e.Y);
                 }
                 else
                 {
@@ -61,6 +65,27 @@ namespace Lab_4
 
                 Invalidate();
             }
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (_isDragging && e.Button == MouseButtons.Left)
+            {
+                int dx = e.X - _lastMousePos.X;
+                int dy = e.Y - _lastMousePos.Y;
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Move(dx, dy);
+                _lastMousePos = new Point(e.X, e.Y);
+                Invalidate();
+            }
+        }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+            _isDragging = false;
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
