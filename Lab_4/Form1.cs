@@ -74,6 +74,37 @@ namespace Lab_4
                 }
                 Invalidate();
             }
+
+            int step = 5; if (e.KeyCode == Keys.Left)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Move(-step, 0);
+                Invalidate();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Move(step, 0);
+                Invalidate();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Move(0, -step);
+                Invalidate();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).Move(0, step);
+                Invalidate();
+            }
+
+
         }
 
         public Form1()

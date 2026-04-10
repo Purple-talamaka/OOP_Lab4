@@ -12,10 +12,10 @@ namespace Lab_4
         protected int _y;
         protected Color _color;
 
-        public virtual void Move(int x, int y)
+        public virtual void Move(int dx, int dy)
         {
-            _x = x;
-            _y = y;
+            _x += dx;
+            _y += dy;
         }
 
         public abstract void Draw(Graphics g);
