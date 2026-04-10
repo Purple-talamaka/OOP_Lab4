@@ -28,12 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            toolStrip1 = new ToolStrip();
+            btnCircle = new ToolStripButton();
+            btnSquare = new ToolStripButton();
+            btnTriangle = new ToolStripButton();
+            btnSegment = new ToolStripButton();
+
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnCircle, btnSquare, btnTriangle, btnSegment });
+
+            btnCircle.Text = "Круг";
+            btnCircle.Click += btnCircle_Click;
+
+            btnSquare.Text = "Квадрат";
+            btnSquare.Click += btnSquare_Click;
+
+            btnTriangle.Text = "Треугольник";
+            btnTriangle.Click += btnTriangle_Click;
+
+            btnSegment.Text = "Отрезок";
+            btnSegment.Click += btnSegment_Click;
+
+            SuspendLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(toolStrip1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ToolStrip toolStrip1;
+        private ToolStripButton btnCircle;
+        private ToolStripButton btnSquare;
+        private ToolStripButton btnTriangle;
+        private ToolStripButton btnSegment;
     }
 }
