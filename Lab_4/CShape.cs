@@ -11,7 +11,6 @@ namespace Lab_4
         protected int _x;
         protected int _y;
         protected Color _color;
-        protected bool _isSelected;
 
         public virtual void Move(int x, int y)
         {
@@ -22,5 +21,7 @@ namespace Lab_4
         public abstract void Draw(Graphics g);
 
         public abstract bool HitTest(int x, int y);
+
+        public bool IsSelected { get; set; }
     }
 }

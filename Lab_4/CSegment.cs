@@ -38,7 +38,7 @@ namespace Lab_4
 
         public override void Draw(Graphics g)
         {
-            Pen pen = _isSelected ? new Pen(Color.Blue, 2) : Pens.Black;
+            Pen pen = IsSelected ? new Pen(Color.Blue, 2) : Pens.Black;
             g.DrawLine(pen, _x1, _y1, _x2, _y2);
         }
     }

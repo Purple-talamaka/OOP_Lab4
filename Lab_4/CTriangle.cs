@@ -47,7 +47,7 @@ namespace Lab_4
         public override void Draw(Graphics g)
         {
             Point[] v = GetVertices();
-            if (_isSelected)
+            if (IsSelected)
             {
                 g.FillPolygon(Brushes.LightBlue, v);
                 g.DrawPolygon(new Pen(Color.Blue, 2), v);

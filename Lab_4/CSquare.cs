@@ -28,7 +28,7 @@ namespace Lab_4
             int left = _x - half;
             int top = _y - half;
 
-            if (_isSelected)
+            if (IsSelected)
             {
                 g.FillRectangle(Brushes.LightBlue, left, top, _side, _side);
                 g.DrawRectangle(new Pen(Color.Blue, 2), left, top, _side, _side);

@@ -29,7 +29,7 @@ namespace Lab_4
             int top = _y - _radius;
             int size = _radius * 2;
 
-            if (_isSelected)
+            if (IsSelected)
             {
                 g.FillEllipse(Brushes.LightBlue, left, top, size, size);
                 g.DrawEllipse(new Pen(Color.Blue, 2), left, top, size, size);
