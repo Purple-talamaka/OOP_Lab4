@@ -33,6 +33,8 @@
             btnSquare = new ToolStripButton();
             btnTriangle = new ToolStripButton();
             btnSegment = new ToolStripButton();
+            menuStrip1 = new MenuStrip();
+            menuItemColor = new ToolStripMenuItem();
 
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnCircle, btnSquare, btnTriangle, btnSegment });
 
@@ -48,11 +50,17 @@
             btnSegment.Text = "Отрезок";
             btnSegment.Click += btnSegment_Click;
 
+            menuStrip1.Items.Add(menuItemColor);
+            menuItemColor.Text = "Цвет";
+            menuItemColor.Click += menuItemColor_Click;
+
             SuspendLayout();
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(toolStrip1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -67,5 +75,7 @@
         private ToolStripButton btnSquare;
         private ToolStripButton btnTriangle;
         private ToolStripButton btnSegment;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem menuItemColor;
     }
 }

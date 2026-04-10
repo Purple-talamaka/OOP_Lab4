@@ -49,12 +49,12 @@ namespace Lab_4
             Point[] v = GetVertices();
             if (IsSelected)
             {
-                g.FillPolygon(Brushes.LightBlue, v);
+                g.FillPolygon(new SolidBrush(_color), v);
                 g.DrawPolygon(new Pen(Color.Blue, 2), v);
             }
             else
             {
-                g.FillPolygon(Brushes.LightGray, v);
+                g.FillPolygon(new SolidBrush(_color), v);
                 g.DrawPolygon(Pens.Black, v);
             }
         }

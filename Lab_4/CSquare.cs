@@ -30,12 +30,12 @@ namespace Lab_4
 
             if (IsSelected)
             {
-                g.FillRectangle(Brushes.LightBlue, left, top, _side, _side);
+                g.FillRectangle(new SolidBrush(_color), left, top, _side, _side);
                 g.DrawRectangle(new Pen(Color.Blue, 2), left, top, _side, _side);
             }
             else
             {
-                g.FillRectangle(Brushes.LightGray, left, top, _side, _side);
+                g.FillRectangle(new SolidBrush(_color), left, top, _side, _side);
                 g.DrawRectangle(Pens.Black, left, top, _side, _side);
             }
         }

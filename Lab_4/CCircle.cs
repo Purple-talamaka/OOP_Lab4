@@ -31,12 +31,12 @@ namespace Lab_4
 
             if (IsSelected)
             {
-                g.FillEllipse(Brushes.LightBlue, left, top, size, size);
+                g.FillEllipse(new SolidBrush(_color), left, top, size, size);
                 g.DrawEllipse(new Pen(Color.Blue, 2), left, top, size, size);
             }
             else
             {
-                g.FillEllipse(Brushes.LightGray, left, top, size, size);
+                g.FillEllipse(new SolidBrush(_color), left, top, size, size);
                 g.DrawEllipse(Pens.Black, left, top, size, size);
             }
         }

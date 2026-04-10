@@ -10,7 +10,7 @@ namespace Lab_4
     {
         protected int _x;
         protected int _y;
-        protected Color _color;
+        protected Color _color = Color.LightGray;
 
         public virtual void Move(int dx, int dy)
         {
@@ -23,5 +23,10 @@ namespace Lab_4
         public abstract bool HitTest(int x, int y);
 
         public bool IsSelected { get; set; }
+
+        public void SetColor(Color color)
+        {
+            _color = color;
+        }
     }
 }

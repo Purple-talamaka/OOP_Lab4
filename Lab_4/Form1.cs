@@ -139,6 +139,18 @@ namespace Lab_4
 
         private void Form1_Load(object sender, EventArgs e) { }
 
+        private void menuItemColor_Click(object sender, EventArgs e)
+        {
+            using ColorDialog dlg = new ColorDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                for (int i = 0; i < _storage.GetCount(); i++)
+                    if (_storage.GetObject(i).IsSelected)
+                        _storage.GetObject(i).SetColor(dlg.Color);
+                Invalidate();
+            }
+        }
+
         private void btnCircle_Click(object sender, EventArgs e) => _currentTool = "Круг";
         private void btnSquare_Click(object sender, EventArgs e) => _currentTool = "Квадрат";
         private void btnTriangle_Click(object sender, EventArgs e) => _currentTool = "Треугольник";
